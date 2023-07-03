@@ -1,8 +1,8 @@
 import React from 'react'
-
+import AuthBox from '../shared/authBox'
 const RegisterPage = () => {
   return (
-    <div>RegisterPage</div>
+    <AuthBox>RegisterPage</AuthBox>
   )
 }
 
