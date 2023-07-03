@@ -1,5 +1,5 @@
 import * as api from "./../../api";
-
+import { openAlertMessage } from "./alertActions";
 export const authActions = {
   SET_USER_DETAILS:"AUTH.SET_USER_DETAILS",
 }
@@ -23,7 +23,7 @@ const login = (userDetails, navigate) => {
     console.log(response);
     if (response.error)
     {
-      
+       dispatch(openAlertMessage(response?.exception?.response?.data));
     }
     else
     {
@@ -41,7 +41,7 @@ const register = (userDetails, navigate) => {
     console.log(response);
     if (response.error)
     {
-      
+        dispatch(openAlertMessage(response?.exception?.response?.data));
     }
     else
     {
