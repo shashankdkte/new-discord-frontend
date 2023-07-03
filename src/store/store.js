@@ -5,7 +5,7 @@ import authReducer from "./reducers/authReducer"
 
 const rootReducer = combineReducers({
   auth:authReducer
-});
+});   
 const store = createStore(
   rootReducer,
   composeWithDevTools(applyMiddleware(thunk))
