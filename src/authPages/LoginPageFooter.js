@@ -7,8 +7,8 @@ import {
 } from '@mui/material';
 const LoginPageFooter = (props) => {
   const { isFormValid, handleLogin } = props;
-  const navigate = useNavigate();
 
+  const navigate = useNavigate();
   const handlePushToRegisterPage = () => {
     navigate("/register")
   }
