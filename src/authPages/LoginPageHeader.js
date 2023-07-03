@@ -4,10 +4,10 @@ import {Typography} from "@mui/material"
 const LoginPageHeader = () => {
   return (
     <>
-      <Typography variant='h5' sx={{ color: "#2A2F4F" }}>
+      <Typography variant='h5' sx={{ color: "#F2F3F5" }}>
         Welcome Back
       </Typography>
-      <Typography sx={{color:"#917FB3"}}>
+      <Typography sx={{color:"#AFB4BC"}}>
       We are happy that you are with us
       </Typography>
     </>
