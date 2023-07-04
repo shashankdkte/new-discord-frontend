@@ -46,7 +46,7 @@ export const register = async (data) => {
 }
 
 
-const checkResponseCode = (exception) => {
+export const checkResponseCode = (exception) => {
   const responseCode = exception?.response?.status;
 
   if (responseCode) {
