@@ -24,6 +24,7 @@ const Dashboard = ({setUserDetails}) => {
     }
     else
     {
+
       setUserDetails(JSON.parse(userDetails));
       connnectWithSocketServer(JSON.parse(userDetails));
       }
