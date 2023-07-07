@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { validateMail } from '../../shared/utils/validators';
-import { Dialog, DialogContent, DialogContentText, DialogTitle, Typography } from '@mui/material';
+import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Typography } from '@mui/material';
 import InputWithLabel from '../../shared/InputWithLabel';
+import CustomPrimaryButton from '../../shared/CustomPrimaryButton';
 
 const AddFriendDialog = (props) => {
-  const { isDialogOpen, closeDialogHandler, sendFriendInvitation } = props;
+  const { isDialogOpen, closeDialogHandler, sendFriendInvitation=()=>{} } = props;
   const [mail, setMail] = useState("");
   const [isFormValid, setIsFormValid] = useState(false);
 
@@ -32,6 +33,18 @@ const AddFriendDialog = (props) => {
           </DialogContentText>
           <InputWithLabel  label="Mail" type="text" value={mail} setValue={setMail} placeholder="Enter mail address"/>
         </DialogContent>
+        <DialogActions>
+          <CustomPrimaryButton
+            onClick={handleSendInvitation}
+            disabled={!isFormValid}
+            label="Send"
+            additionalStyles={{
+              marginLeft: "15px",
+              marginRight: "15px",
+              marginBottom:"10px"
+            }}
+          />
+        </DialogActions>
       </Dialog>
     </div>
   )
