@@ -1,6 +1,7 @@
 import { Box, Tooltip, Typography } from '@mui/material';
 import React, { useState } from 'react'
 import Avatar from '../../../shared/Avatar';
+import InvitationDecisionButtons from './InvitationDecisionButtons';
 
 const PendingListInvitationItem = ({ id, username, mail, acceptFriendInvitation = () => { },
   rejectFriendInvitation = () => { } }) => {
@@ -38,6 +39,7 @@ const PendingListInvitationItem = ({ id, username, mail, acceptFriendInvitation 
             }}
             variant='subtitle1'
           >{username}</Typography>
+          <InvitationDecisionButtons  disabled={buttonsDisabled} acceptInvitationHandler={handleAcceptInvitation} rejectInvitationHandler={handleRejectInvitation}/>
       </Box>
       </div>
     </Tooltip>
