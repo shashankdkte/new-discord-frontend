@@ -13,11 +13,11 @@ const AddFriendDialog = (props) => {
 
   const handleSendInvitation = () => {
     sendFriendInvitation({
-      mail:mail,
-    })
+      targetMailAddress:mail,
+    },handleCloseDialog)
   }
 
-  const handleCloseDialog = () => {
+  const handleCloseDialog  = () => {
     closeDialogHandler();
     setMail("");
   }
