@@ -14,10 +14,11 @@ export const getActions = (dispatch) => {
   }
 }
 
-export const setPendingInvitations = (pendingInvitations) => {
+export const setPendingInvitations = (pendingFriendsInvitations) => {
+  console.log(pendingFriendsInvitations)
   return {
     type: friendsActions.SET_PENDING_FRIENDS_INVITATION,
-    pendingInvitations
+    pendingFriendsInvitations
   }
 }
 const sendFriendInvitation = (data, closeDialogHandler) => {

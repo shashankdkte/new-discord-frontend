@@ -1,6 +1,7 @@
 import React from 'react'
 import { styled } from "@mui/material";
 import PendingListInvitationItem from './PendingListInvitationItem';
+import {connect} from "react-redux"
 const DUMMY_INVITATIONS = [
   {
     _id: "1",
@@ -27,10 +28,11 @@ const MainContainer = styled("div")({
   overflow:"auto"
 })
 
-const PendingInvitationList = () => {
+const PendingInvitationList = ({ pendingFriendsInvitations }) => {
+  
   return (
     <MainContainer>
-      {DUMMY_INVITATIONS.map((invitation) => (
+      {pendingFriendsInvitations && pendingFriendsInvitations.map((invitation) => (
         <PendingListInvitationItem
           key={invitation._id}
           id={invitation._id}
@@ -42,4 +44,9 @@ const PendingInvitationList = () => {
   )
 }
 
-export default PendingInvitationList
+const mapStoreStateToProps = ({ friends }) => {
+  return {
+    ...friends
+  }
+}
+export default connect(mapStoreStateToProps)(PendingInvitationList)
