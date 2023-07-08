@@ -1,6 +1,6 @@
 import React from 'react'
-import { Typography, styled } from '@mui/material'
-
+import { Typography } from '@mui/material'
+import { styled } from "@mui/system";
 
 const Wrapper = styled("div")({
   flexGrow: 1,
