@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import MessagesHeader from './MessagesHeader';
 import DUMMY_MESSAGES from './DUMMY_MESSAGES';
 import Message from './Message';
+import DateSeparator from './DateSeperator';
 
 const MainContainer = styled("div")({
   height: "calc(100% - 60px)",
@@ -33,15 +34,23 @@ const Messages = ({ chosenChatDetails, messages }) => {
       {messages.map((message, index) => {
         const sameAuthor = index > 0 && messages[index].author._id === messages[index - 1].author._id;
         const sameDay = index > 0 && convertDateToHumanReadable(new Date(message?.date), "dd/mm/yy") ===
-        convertDateToHumanReadable(new Date(message[index - 1]?.date), "dd/mm/yy")
-        return( <Message
-          key={message._id}
+          convertDateToHumanReadable(new Date(messages[index - 1]?.date), "dd/mm/yy")
+        
+        return (
+          <div key={message._id} style={{width:"97%"}}>
+            {
+              (!sameDay || index === 0) && (<DateSeparator date={convertDateToHumanReadable(new Date(message?.date),"dd/mm/yy")}/>)
+              
+          }
+          <Message key={message._id}
           content={message.content}
           username={message.author.username}
           sameAuthor={sameAuthor}
           date={convertDateToHumanReadable(new Date(message.date),"dd/mm/yy")}
           sameDay={sameDay}
-        />)
+          />
+       </div>)
+        
       })}
     </MainContainer>
   )

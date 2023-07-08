@@ -4,7 +4,8 @@ import store from "../../store/store";
 export const updateDirectChatHistoryIfActive = (data) => {
   
   const { participants, messages } = data;
-  
+  console.log("Participants ->" , participants )
+  console.log("Participants ->" , messages )
   //find id of user from token and id from active conversation
   const receiverId = store.getState().chat.chosenChatDetails?.id;
   const userId = store.getState().auth.userDetails._id;

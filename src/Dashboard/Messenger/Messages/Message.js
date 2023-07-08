@@ -31,6 +31,8 @@ const SameAuthorMessageText = styled("span")({
   marginLeft: "70px",
 });
 const Message = ({ content, sameAuthor, username, date, sameDay }) => {
+  console.log("sameAuthor ->",sameAuthor) 
+  console.log("sameDay ->",sameDay) 
   if (sameAuthor && sameDay)
   {
     return (

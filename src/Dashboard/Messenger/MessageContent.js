@@ -9,6 +9,11 @@ const Wrapper = styled("div")({
 })
 const MessageContent = ({ chosenChatDetails }) => {
   
+  // useEffect(() => {
+  //   getDirectChatHistory({
+  //    receiverUserId:chosenChatDetails.id
+  //  }) 
+  // },[])
   useEffect(() => {
     //TO DO
     getDirectChatHistory({
