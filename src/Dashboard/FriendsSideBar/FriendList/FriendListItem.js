@@ -2,12 +2,20 @@ import React from 'react'
 import { Button, Typography } from '@mui/material'
 import Avatar from '../../../shared/Avatar';
 import OnlineIndicator from './OnlineIndicator';
+import { chatTypes ,getActions} from '../../../store/actions/chatActions';
+import { connect } from "react-redux";
+
 
 const FriendListItem = (props) => {
 
-  const { id,username,isOnline} = props;
+  const { id, username, isOnline ,setChosenChatDetails} = props;
+  
+  const handleChooseActiveConversation = () => {
+    setChosenChatDetails({id:id,name:username}, chatTypes.DIRECT)
+  }
   return (
-    <Button style={{
+    <Button onClick={handleChooseActiveConversation}
+      style={{
       width: "100%",
       height: "42px",
       marginTop: "10px",
@@ -29,4 +37,10 @@ const FriendListItem = (props) => {
   )
 }
 
-export default FriendListItem
+const mapActionsToProps = (dispatch) => {
+  return {
+    ...getActions(dispatch)
+  }
+}
+
+export default connect(null,mapActionsToProps)(FriendListItem)
