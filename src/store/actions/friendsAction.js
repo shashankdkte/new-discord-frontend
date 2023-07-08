@@ -24,6 +24,13 @@ export const setPendingInvitations = (pendingFriendsInvitations) => {
   }
 }
 
+export const setFriends = (friends) => {
+  return {
+    type: friendsActions.SET_FRIENDS,
+    friends
+  }
+}
+
 export const acceptFriendInvitation = (data) => {
   return async (dispatch) => {
     const response = await api.acceptFriendInvitation(data);
