@@ -24,8 +24,10 @@ const MainContainer = styled("div")({
   flexGrow: 1,
   width:"100%"
 })
-const FriendList = ({friends}) => {
+const FriendList = ({ friends }) => {
+    console.log("friends -> ",friends);
   return (
+
     <MainContainer>
       {friends.map(f => (
         <FriendListItem username={f.username} id={f.id} key={f.id}
