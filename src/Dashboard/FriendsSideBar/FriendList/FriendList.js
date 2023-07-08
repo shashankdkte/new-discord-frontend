@@ -24,12 +24,22 @@ const MainContainer = styled("div")({
   flexGrow: 1,
   width:"100%"
 })
-const FriendList = ({ friends }) => {
-    console.log("friends -> ",friends);
+
+const checkOnlineUsers = (friends = [], onlineUsers = []) =>
+{
+  friends.forEach((f) => {
+    const isUserOnline = onlineUsers.find(user => user.userId === f.id);
+    f.isOnline = isUserOnline ? true : false;
+  })
+  return friends;
+}
+
+const FriendList = ({ friends, onlineUsers }) => {
+    
   return (
 
     <MainContainer>
-      {friends.map(f => (
+      {checkOnlineUsers(friends,onlineUsers).map(f => (
         <FriendListItem username={f.username} id={f.id} key={f.id}
         isOnline={f.isOnline}/>
       ))}
