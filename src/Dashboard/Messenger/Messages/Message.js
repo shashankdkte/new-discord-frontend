@@ -31,7 +31,14 @@ const SameAuthorMessageText = styled("span")({
   marginLeft: "70px",
 });
 const Message = ({ content, sameAuthor, username, date, sameDay }) => {
-  
+  if (sameAuthor && sameDay)
+  {
+    return (
+      <SameAuthorMessageContent>
+        <SameAuthorMessageText>{content}</SameAuthorMessageText>
+      </SameAuthorMessageContent>
+    )
+    }
   return (
     <MainContainer>
       <AvatarContainer>
