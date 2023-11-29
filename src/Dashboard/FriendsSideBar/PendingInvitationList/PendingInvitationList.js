@@ -2,22 +2,22 @@ import React from 'react'
 import { styled } from "@mui/material";
 import PendingListInvitationItem from './PendingListInvitationItem';
 import {connect} from "react-redux"
-const DUMMY_INVITATIONS = [
-  {
-    _id: "1",
-    senderId: {
-      username: "Mark",
-      mail: "dummy@ad.com",
-    },
-  },
-  {
-    _id: "2",
-    senderId: {
-      username: "John",
-      mail: "John@ad.com",
-    },
-  },
-];
+// const DUMMY_INVITATIONS = [
+//   {
+//     _id: "1",
+//     senderId: {
+//       username: "Mark",
+//       mail: "dummy@ad.com",
+//     },
+//   },
+//   {
+//     _id: "2",
+//     senderId: {
+//       username: "John",
+//       mail: "John@ad.com",
+//     },
+//   },
+// ];
 
 const MainContainer = styled("div")({
   width: "100%",
