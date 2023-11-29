@@ -2,8 +2,8 @@ import axios from "axios";
 import { logout } from "./shared/utils/auth";
 
 const apiClient = axios.create({
-  baseURL: "http://localhost:5002/api",
-  timeout: 1000,
+  baseURL: "https://unified-aeyg.onrender.com/api",
+  timeout: 2000,
 });
 
 apiClient.interceptors.request.use(
@@ -26,7 +26,9 @@ export const login = async (data) => {
   try {
     
     return await apiClient.post("/auth/login", data);
-  } catch (exception) {
+  } catch (exception)
+  {
+    console.log(exception)
     return {
       error: true,
       exception
@@ -38,7 +40,9 @@ export const register = async (data) => {
   try {
     
     return await apiClient.post("/auth/register", data);
-  } catch (exception) {
+  } catch (exception)
+  {
+    console.log(exception)
     return {
       error: true,
       exception
