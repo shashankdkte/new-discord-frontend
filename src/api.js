@@ -4,7 +4,7 @@ import { logout } from "./shared/utils/auth";
 const apiClient = axios.create({
   // baseURL: "https://unified-aeyg.onrender.com/api",
   baseURL:"http://localhost:5002/api",
-  timeout: 2000,
+  timeout: 5000,
 });
 
 apiClient.interceptors.request.use(
