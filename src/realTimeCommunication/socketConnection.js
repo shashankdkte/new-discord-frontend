@@ -47,6 +47,10 @@ export const connnectWithSocketServer = (userDetails) => {
   socket.on("room-create", (data) => {
     roomHandler.newRoomCreated(data)
   })
+
+   socket.on("active-rooms", (data) => {
+    roomHandler.updateActiveRooms(data)
+  })
 }
 
 
