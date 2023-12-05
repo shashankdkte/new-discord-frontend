@@ -1,13 +1,13 @@
 import React from 'react';
 import Button from "@mui/material/Button";
 import AddIcon from "@mui/icons-material/Add";
-
+import * as roomHandler from "../../realTimeCommunication/roomHandler"
 
 
 const CreateRoomButton = () => {
 
   const createRoomHandler = () => {
-  
+    roomHandler.createNewRoom();
       //creating a room and sending info to server about this
 }
 
@@ -22,7 +22,7 @@ const CreateRoomButton = () => {
       marginTop: "10px",
       color: "white",
       backgroundColor:"#5865f2"
-    }}>
+    }} onClick={createRoomHandler}>
       <AddIcon />
     </Button>
   )
