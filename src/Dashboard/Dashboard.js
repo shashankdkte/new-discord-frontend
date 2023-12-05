@@ -29,7 +29,7 @@ const Dashboard = ({setUserDetails, isUserInRoom}) => {
       setUserDetails(JSON.parse(userDetails));
       connnectWithSocketServer(JSON.parse(userDetails));
       }
-  },[])
+  },[setUserDetails])
   
   return (
     <Wrapper>
