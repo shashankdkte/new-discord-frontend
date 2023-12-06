@@ -3,6 +3,7 @@ import { setFriends, setOnlineUsers, setPendingInvitations } from "../store/acti
 import store from "../store/store";
 import { updateDirectChatHistoryIfActive } from "../shared/utils/chat";
 import * as roomHandler from "./roomHandler"
+import * as webRTCHandler from "./webRTCHandler"
 let socket = null;
 
 export const connnectWithSocketServer = (userDetails) => {
@@ -53,8 +54,20 @@ export const connnectWithSocketServer = (userDetails) => {
    })
   
   socket.on("conn-prepare", (data) => {
-    console.log("prepare for conn-prerpar")
-    console.log(data)
+    const { connUserSocketId } = data;
+    webRTCHandler.prepareNewPeerConnection(connUserSocketId, false)
+    socket.emit("conn-init",{connUserSocketId:connUserSocketId})
+    
+  })
+
+  socket.on("conn-init", (data) => {
+    const { connUserSocketId } = data;
+    webRTCHandler.prepareNewPeerConnection(connUserSocketId,true)
+  })
+
+    socket.on("conn-signal", (data) => {
+
+    webRTCHandler.handleSignalingData(data)
   })
 }
 
@@ -78,4 +91,8 @@ export const getDirectChatHistory = (data) => {
 
 export const createNewRoom = () => {
   socket.emit("room-create")
+}
+
+export const signalPeerData = (data) => {
+  socket.emit("conn-signal", data);
 }
