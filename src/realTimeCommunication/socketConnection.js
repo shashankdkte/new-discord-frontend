@@ -50,6 +50,11 @@ export const connnectWithSocketServer = (userDetails) => {
 
    socket.on("active-rooms", (data) => {
     roomHandler.updateActiveRooms(data)
+   })
+  
+  socket.on("conn-prepare", (data) => {
+    console.log("prepare for conn-prerpar")
+    console.log(data)
   })
 }
 
