@@ -1,5 +1,7 @@
 import React from "react";
-import {styled} from "@mui/system"
+import { styled } from "@mui/system";
+import { connect } from "react-redux";
+import Video from "./Video";
 
 
 const MainContainer = styled("div")({
@@ -8,8 +10,14 @@ const MainContainer = styled("div")({
   display: "flex",
   flexWrap:"wrap"
 })
-const VideoContainer = () => {
-  return <MainContainer></MainContainer>
+const VideoContainer = ({localStream}) => {
+  return <MainContainer>
+    <Video stream={localStream} isLocalStream/>
+  </MainContainer>
 }
-
-export default VideoContainer
+const mapStoreStateToProps = ({ room }) => {
+  return {
+    ...room,
+  }
+}
+export default connect(mapStoreStateToProps)(VideoContainer)
